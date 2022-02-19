@@ -1,0 +1,18 @@
+﻿<Window x:Class="Kalkulator.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Kalkulator"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800" FontSize="33">
+    <StackPanel>
+        <TextBox Text="{Binding Path=X, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+        <TextBox Text="{Binding Path=Y}"></TextBox>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button MinWidth="100" Click="Sabiranje">+</Button>
+            <Button MinWidth="100" Margin="50 0" Click="Oduzimanje" >-</Button>
+        </StackPanel>
+        <Label Content="{Binding Path=Rezultat}"></Label>
+    </StackPanel>
+</Window>
