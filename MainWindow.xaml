@@ -7,12 +7,23 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800" FontSize="33">
     <StackPanel>
-        <TextBox Text="{Binding Path=X, UpdateSourceTrigger=PropertyChanged}"></TextBox>
-        <TextBox Text="{Binding Path=Y}"></TextBox>
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-            <Button MinWidth="100" Click="Sabiranje">+</Button>
-            <Button MinWidth="100" Margin="50 0" Click="Oduzimanje" >-</Button>
+        <StackPanel>
+            <TextBox Text="{Binding Path=X, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+            <TextBox Text="{Binding Path=Y}"></TextBox>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button MinWidth="100" Click="Sabiranje">+</Button>
+                <Button MinWidth="100" Margin="50 0" Click="Oduzimanje" >-</Button>
+            </StackPanel>
+            <Label Content="{Binding Path=Rezultat}"></Label>
         </StackPanel>
-        <Label Content="{Binding Path=Rezultat}"></Label>
+        <StackPanel Name="stek2">
+            <TextBox Text="{Binding Path=X, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+            <TextBox Text="{Binding Path=Y}"></TextBox>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button MinWidth="100" Click="Sabiranje2">+</Button>
+                <Button MinWidth="100" Margin="50 0" Click="Oduzimanje" >-</Button>
+            </StackPanel>
+            <Label Content="{Binding Path=Rezultat}"></Label>
+        </StackPanel>
     </StackPanel>
 </Window>

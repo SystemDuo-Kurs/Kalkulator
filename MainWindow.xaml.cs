@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,6 +25,24 @@ namespace Kalkulator
         {
             InitializeComponent();
             DataContext = new Calc();
+            stek2.DataContext = new Calc();
+
+            //Ovo radi labela pri bindingu
+            Calc cl = new();
+
+            if (cl is INotifyPropertyChanged npc)
+            {
+                npc.PropertyChanged += Foo;
+            }
+
+            cl.X = 12;
+            cl.Y = 34;
+            cl.Operacija("+");
+        }
+
+        public void Foo(object zklj, PropertyChangedEventArgs p)
+        {
+            MessageBox.Show($"Promenjeno {p.PropertyName}");
         }
 
         //TODO Izmeniti klasu Calc, tako da ima svih 5 operacija (+,-,*,/, modulus :P )
@@ -36,8 +55,15 @@ namespace Kalkulator
         {
             if (DataContext is Calc c)
             {
-                c.Sabiranje();
-                MessageBox.Show(c.Rezultat.ToString());
+                c.Operacija("+");
+            }
+        }
+
+        private void Sabiranje2(object sender, RoutedEventArgs zklj)
+        {
+            if (stek2.DataContext is Calc c)
+            {
+                c.Operacija("+");
             }
         }
 
@@ -45,8 +71,7 @@ namespace Kalkulator
         {
             if (DataContext is Calc c)
             {
-                c.Oduzimanje();
-                MessageBox.Show(c.Rezultat.ToString());
+                c.Operacija("-");
             }
         }
     }
